@@ -1,15 +1,26 @@
+Tasks = new Meteor.Collection('tasks');
+
 if (Meteor.isClient) {
-  Template.hello.greeting = function () {
-    return "Welcome to addonefeature.";
+  Template.list_tasks.tasks = function () {
+    return Tasks.find();
   };
 
-  Template.hello.events({
-    'click input' : function () {
-      // template data, if any, is available in 'this'
-      if (typeof console !== 'undefined')
-        console.log("You pressed the button");
+  Template.new_task.users = function () {
+    return Meteor.users.find();
+  };
+
+  Template.new_task.events = {
+    'click button' : function(event) {
+      Tasks.insert({             
+        title: $('#new_task_title').val(),
+        description: $('#new_task_description').val(),
+        creator_id: Meteor.userId(),
+        assignee_id: ''
+      });
+
+      return false;
     }
-  });
+  };
 }
 
 if (Meteor.isServer) {
