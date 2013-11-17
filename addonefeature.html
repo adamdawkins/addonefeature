@@ -37,6 +37,15 @@
   <p class="list-group-item-text">{{description}}</p>
   <p>Created by {{getUserEmail creator_id}}</p>
   <p>Assigned to: {{getUserEmail assignee_id}}</p>
+  <div class="dropdown">
+	<a data-toggle="dropdown" href="#">Status<span class="glyphicon glyphicon-chevron-down"></span></a>
+	<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+		<li>Opened</li>
+		<li>Closed</li>
+		<li>Cancelled</li>
+		<li>Suspended</li>
+	</ul>
+ <div>
 </div>
 {{/each}}
 </ul>
