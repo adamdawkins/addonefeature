@@ -15,7 +15,7 @@ if (Meteor.isClient) {
         title: $('#new_task_title').val(),
         description: $('#new_task_description').val(),
         creator_id: Meteor.userId(),
-        assignee_id: ''//$('#assigned_user_id option:selected').val()
+        assignee_id: $('#assigned_user_id option:selected').val()
       });
       $('#new_task_modal').modal('hide');
       return false;
